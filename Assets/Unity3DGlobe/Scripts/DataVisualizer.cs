@@ -8,7 +8,7 @@ public class DataVisualizer : MonoBehaviour {
     public GameObject Earth;
     public GameObject PointPrefab;
     public float ValueScaleMultiplier = 1;
-    GameObject[] seriesObjects;
+    public GameObject[] seriesObjects;
     int currentSeries = 0;
     public void CreateMeshes(SeriesData[] allSeries)
     {
@@ -98,6 +98,13 @@ public class DataVisualizer : MonoBehaviour {
             currentSeries = seriesIndex;
             seriesObjects[currentSeries].SetActive(true);
 
+        }
+    }
+
+    public void Update() {
+        foreach (GameObject item in seriesObjects)
+        {
+            item.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
 }
